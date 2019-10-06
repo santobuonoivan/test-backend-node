@@ -1,0 +1,5 @@
+node_modules
+This
+.idea/*
+requires/test.json
+components/data/files/*

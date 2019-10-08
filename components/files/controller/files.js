@@ -3,7 +3,11 @@ const d3 = require("d3");
 const _ = require("lodash");
 const humanize = require('humanizejs');
 const moment = require('moment');
-const log = require('log');
+//const log = require('log');
+const lineReader = require('line-reader'),
+    Promise = require('bluebird');
+
+const eachLine = Promise.promisify(lineReader.eachLine);
 
 exports.all_files = async function (req, res) {
     let {humanreadable} = req.body;
@@ -34,24 +38,24 @@ exports.all_files = async function (req, res) {
 exports.metrics = async function (req, res) {
     const { filename } = req.body;
     const dirname = __dirname+'/../files/tsv/'+filename;
-    const lineReader = require('line-reader'),
-    Promise = require('bluebird');
-
-    const eachLine = Promise.promisify(lineReader.eachLine);
     let metrics = {};
     let response = {};
-    response['started'] = moment().format('YYYY-MM-DDTHH:MM:SS');
-    response['status'] = 'started';
+
     /* START */
     //log("response: %o",response);
+    response['started'] = moment().format('YYYY-MM-DDTHH:MM:SS');
+    response['status'] = 'started';
     console.log(response);
+
     let process = false;
     eachLine( dirname, function(line) {
 
         if(!process) {
+
             /* PROCESS */
             response['status'] = 'processing';
             console.log(response);
+
             process = true;
         }
         let lineSplit = _.split( line, '\t');
@@ -69,19 +73,22 @@ exports.metrics = async function (req, res) {
             }
         }
     }).then(function() {
+
         /* FINISH */
         response['finished'] = moment().format('YYYY-MM-DDTHH:MM:SS');
         response['metrics'] = metrics;
         response['status'] = 'finished';
         console.log(response);
+
         return res.status(200).send(response);
     }).catch(function(err) {
+
         /* FAIL */
         response['status'] = 'failed';
         response['Message'] = 'Wrong file format';
         console.log(response);
-        return res.status(400).send(response,err);
 
+        return res.status(400).send(response,err);
     });
 
 

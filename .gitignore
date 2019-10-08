@@ -3,4 +3,5 @@ This
 The
 .idea/*
 requires/test.json
-components/data/files/*
+components/files/files/tsv
+

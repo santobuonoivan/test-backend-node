@@ -1,7 +1,8 @@
 node_modules
 This
 The
-.idea/*
 requires/test.json
-components/files/files/tsv/
-
+/components/files/files/tsv/file1.tsv
+/components/files/files/tsv/file2.tsv
+/components/files/files/tsv/file3.tsv
+/.idea

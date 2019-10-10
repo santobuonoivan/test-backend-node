@@ -18,9 +18,11 @@
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
     "node-tsv-json": "^0.2.1",
+    "os": "^0.1.1",
     "sequelize": "^5.10.2",
     "sort-json-array": "^0.1.7",
     "tsv": "^0.2.0",
-    "tsv-parser": "^2.0.3"
+    "tsv-parser": "^2.0.3",
+    "worker-threads-pool": "^2.0.0"
   }
 }

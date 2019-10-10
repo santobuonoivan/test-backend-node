@@ -10,6 +10,7 @@ const path = require('path');
 // load a few hundred thousand words into an array
 let dir = __dirname + path.sep +'tsv' + path.sep + 'file1.tsv';
 let rowsList = fs.readFileSync(dir, 'utf8').split('\n');
+//rowsList.length = 10;
 //console.log(a_words);
 
 
@@ -20,7 +21,7 @@ let rowsList = fs.readFileSync(dir, 'utf8').split('\n');
 console.time('parallel');
 
 // create a group of workers (size defaults to os.cpus().length)
-let k_group = worker.group(__dirname + path.sep +'myWorker.js', cpus);
+let k_group = worker.group(__dirname + path.sep +'myWorker.js', cpus -1 );
 
 // processing pipeline
 k_group
@@ -32,8 +33,8 @@ k_group
     //   to a new task in the same thread (keeping data in the same thread)
     //.thru('sort')
     // reduce multiple results into a single one
-    .reduce('merge').then((a_merged_metrics) => {
-        // stop the timer
+    .reduce('merge').then((a_merged_metrics) => {        // stop the timer
+
         console.timeEnd('parallel');
-        console.log(a_merged_metrics);
+        //console.log(a_merged_metrics);
     });

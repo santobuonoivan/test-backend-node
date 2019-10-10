@@ -2,18 +2,19 @@ const worker = require('worker');
 const _ = require('lodash');
 
 function MERGE_METRICS(metric1, metric2) {
-    return _.mergeWith(metric1, metric2, (objValue, srcValue) => {
+    let met = _.mergeWith(metric1, metric2, (objValue, srcValue) => {
         if (!objValue || !srcValue) return _.merge(objValue, srcValue);
         return _.mergeWith(objValue, srcValue, (value1, value2) => {
             if (!value1 || !value2) return value1 || value2;
             return value1 + value2;
         });
     });
+    return met;
 };
 
 function generateMetrics(lines){
     let metrics = {};
-    return _.map(lines, (line) => {
+    _.map(lines, (line) => {
         let lineSplit = _.split(line, '\t');
         let code = lineSplit[2];
         let segments = _.split(lineSplit[1], ',');
@@ -28,7 +29,10 @@ function generateMetrics(lines){
             }
         }
         return metrics;
+
     });
+
+    return metrics;
 }
 
 
@@ -36,7 +40,8 @@ worker.dedicated({
     // take a list of words and reverse the letters in each word
     get_metrics(lines) {
         try {
-            return generateMetrics(lines);
+            let a = generateMetrics(lines);
+            return a;
         }catch (e) {
             console.log(e.message);
         }
@@ -44,7 +49,8 @@ worker.dedicated({
 
     // take two sorted lists of words and merge them in sorted order
     merge(a_line_a, a_line_b) {
-        let response = worker.merge_sorted(a_line_a, a_line_b, MERGE_METRICS;
+        let response = MERGE_METRICS(a_line_a, a_line_b);
+
         return response;
     },
 });

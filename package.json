@@ -23,6 +23,6 @@
     "sort-json-array": "^0.1.7",
     "tsv": "^0.2.0",
     "tsv-parser": "^2.0.3",
-    "worker-threads-pool": "^2.0.0"
+    "worker": "^0.4.0"
   }
 }

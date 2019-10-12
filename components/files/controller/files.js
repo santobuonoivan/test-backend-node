@@ -74,7 +74,7 @@ exports.metrics = async function (req, res) {
         });
     }catch (e) {
         return res.status(400).send(
-            failed( e.message )
+git             failed( e.message )
         );
     }
 

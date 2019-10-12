@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1482c7d1-ddbe-4c23-9a82-ab7ee898920d",
+		"_postman_id": "0fa25677-8f4c-44f6-9fd1-f6b048bf9044",
 		"name": "node_test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,12 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\":\"mecalux\",\n\t\"password\":\"12345\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n\t\"user\":\"mecalux\",\n\t\"password\":\"12345\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/login",
@@ -55,12 +50,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\":\"userfake\",\n\t\"password\":\"12345\",\n\t\"name\":\"leonel\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n\t\"user\":\"userfake\",\n\t\"password\":\"12345\",\n\t\"name\":\"leonel\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/users/",
@@ -91,18 +81,13 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyIjoibWVjYWx1eCIsImlhdCI6MTU3MDMwOTMyOCwiZXhwIjoxNTcwMzk1NzI4fQ.N6VHe3gBN42d1hF67iHKHuWWY0WIITAjpeD-0xoeYqI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyIjoibWVjYWx1eCIsImlhdCI6MTU3MDg5MzEwMiwiZXhwIjoxNTcwOTc5NTAyfQ.SHwnmRdRASfd0eX_jvoNpFTJLWjfKgCDAFWEFy_LBxk",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\":\"mecalux\",\n\t\"password\":\"12345\",\n\t\"name\":\"ivan\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n\t\"user\":\"mecalux\",\n\t\"password\":\"12345\",\n\t\"name\":\"ivan\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/users/",
@@ -133,18 +118,13 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyIjoibWVjYWx1eCIsImlhdCI6MTU3MDMwOTMyOCwiZXhwIjoxNTcwMzk1NzI4fQ.N6VHe3gBN42d1hF67iHKHuWWY0WIITAjpeD-0xoeYqI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyIjoibWVjYWx1eCIsImlhdCI6MTU3MDg5MzEwMiwiZXhwIjoxNTcwOTc5NTAyfQ.SHwnmRdRASfd0eX_jvoNpFTJLWjfKgCDAFWEFy_LBxk",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"sort\":\"asc\",\n\t\"sortField\":\"name\",\n\t\"fields\":[\"name\", \"segment1\", \"platformId\"],\n\t\"limit\":3\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n\t\"sort\":\"asc\",\n\t\"sortField\":\"name\",\n\t\"fields\":[\"name\", \"segment1\", \"platformId\"],\n\t\"limit\":3\n}"
 				},
 				"url": {
 					"raw": "{{url}}/data/",
@@ -171,16 +151,16 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyIjoibWVjYWx1eCIsImlhdCI6MTU3MDg5MzEwMiwiZXhwIjoxNTcwOTc5NTAyfQ.SHwnmRdRASfd0eX_jvoNpFTJLWjfKgCDAFWEFy_LBxk",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\":\"mecalux\",\n\t\"password\":\"12345\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n\t\"user\":\"mecalux\",\n\t\"password\":\"12345\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/files/list",
@@ -194,7 +174,42 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "files metrics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyIjoibWVjYWx1eCIsImlhdCI6MTU3MDg5MzEwMiwiZXhwIjoxNTcwOTc5NTAyfQ.SHwnmRdRASfd0eX_jvoNpFTJLWjfKgCDAFWEFy_LBxk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"filename\":\"file1\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/files/metrics",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"files",
+						"metrics"
+					]
+				}
+			},
+			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

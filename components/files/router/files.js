@@ -10,6 +10,6 @@ const filesController = require('./../controller/files');
 
 /* GET ALL DATA*/
 router.get('/list',[cors(), authMiddleware,/* authorization('','')*/ ], filesController.all_files);
-router.get('/metrics',[cors()/*, authMiddleware,/* authorization('','')*/ ], filesController.metrics);
+router.get('/metrics',[cors(), authMiddleware,/* authorization('','')*/ ], filesController.metrics);
 
 module.exports = router;

@@ -12,6 +12,6 @@ const userController = require('./../controllers/UserController');
 router.get('/',[cors(), authMiddleware/*, authorization('','')*/ ], userController.all_users);
 
 /* ADD ONE DATA*/
-router.post('/',[cors(), authMiddleware/*, authorization('','' )*/], userController.insert_user);
+router.post('/',[cors()/*, authMiddleware/*, authorization('','' )*/], userController.insert_user);
 
 module.exports = router;

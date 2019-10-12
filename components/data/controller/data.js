@@ -5,13 +5,13 @@ const _ = require("lodash");
 const sortJsonArray = require('sort-json-array');
 
 function csvToJson(){
-    let filename = __dirname+'/../files/csv/users.csv';
+    let filename = __dirname+'/../../files/files/csv/users.csv';
     try {
         let data = fs.readFileSync(filename,'utf-8');
         data = d3.csvParse(data);
         return JSON.stringify(data);
     }catch (e) {
-        console.log(e);
+        throw new Error(e.message);
     }
 
 }
@@ -36,7 +36,7 @@ exports.all_data = async function (req, res, next) {
         return res.send({message: 'data not found'});
     }catch (e) {
         return res.status(400).send({
-            e
+            error: e.message
         });
     }
 };

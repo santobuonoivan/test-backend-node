@@ -29,9 +29,7 @@ function generateMetrics(lines){
             }
         }
         return metrics;
-
     });
-
     return metrics;
 }
 

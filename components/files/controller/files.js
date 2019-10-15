@@ -4,15 +4,13 @@ const _ = require("lodash");
 const humanize = require('humanizejs');
 const moment = require('moment');
 //const log = require('log');
-const lineReader = require('line-reader'),
-    Promise = require('bluebird');
 
 const os = require('os');
 const worker = require('worker');
 const cpus = os.cpus().length;
 const path = require('path');
-
-const eachLine = Promise.promisify(lineReader.eachLine);
+//const { MessageChannel } = require('worker_threads');
+//const { port1, port2 } = new MessageChannel();
 const { processing, failed, started, ready } = require('./../repository/portsMensages');
 
 
@@ -69,7 +67,7 @@ exports.metrics = async function (req, res) {
             //   to a new task in the same thread (keeping data in the same thread)
             //.thru('sort')
             // reduce multiple results into a single one
-            .reduce('merge').then((a_merged_metrics) => {        // stop the timer
+            .reduce('merge').then((a_merged_metrics) => {
                 return res.status(200).send(ready(start, a_merged_metrics));
         });
     }catch (e) {

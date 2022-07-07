@@ -21,7 +21,7 @@
     "line-reader": "^0.4.0",
     "lodash": "^4.17.15",
     "log": "^6.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
     "node-tsv-json": "^0.2.1",
